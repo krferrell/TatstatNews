@@ -1,0 +1,15 @@
+{
+  "name": "tattoonews-server",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start:server": "nodemon server.js"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "cors": "^2.8.5",
+    "dotenv": "^11.0.0",
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
+  }
+}
