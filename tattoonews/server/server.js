@@ -8,10 +8,6 @@ const app = express();
 
 app.use(cors());
 
-app.get('/', (req, res) => {
-    res.json('hi');
-});
-
 app.get('/news', (req, res) => {
     var options = {
         method: 'GET',
@@ -19,14 +15,14 @@ app.get('/news', (req, res) => {
         params: {
           q: 'tattoo',
           pageNumber: '1',
-          pageSize: '50',
+          pageSize: '10',
           autoCorrect: 'true',
           fromPublishedDate: 'null',
           toPublishedDate: 'null'
         },
         headers: {
           'x-rapidapi-host': 'contextualwebsearch-websearch-v1.p.rapidapi.com',
-          'x-rapidapi-key': 'f67d13a6f5msh97e30166990fd25p17f360jsn567dcd2e10df'
+          'x-rapidapi-key': process.env.REACT_APP_API_KEY,
         }
       };
       
@@ -35,6 +31,7 @@ app.get('/news', (req, res) => {
       }).catch(function (error) {
           console.error(error);
       });
-})
+});
+
 
 app.listen(8000, () => console.log(`backend is running on port ${PORT}`));
